@@ -1,28 +1,12 @@
 package org.meveo.api.account;
 
-import java.util.List;
-
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-import javax.interceptor.Interceptors;
-
 import org.meveo.admin.exception.BusinessException;
 import org.meveo.admin.util.pagination.PaginationConfiguration;
 import org.meveo.api.MeveoApiErrorCodeEnum;
-import org.meveo.api.dto.account.CustomerBrandDto;
-import org.meveo.api.dto.account.CustomerCategoryDto;
-import org.meveo.api.dto.account.CustomerDto;
-import org.meveo.api.dto.account.CustomersDto;
-import org.meveo.api.dto.account.FilterProperty;
-import org.meveo.api.dto.account.FilterResults;
+import org.meveo.api.dto.account.*;
 import org.meveo.api.dto.response.PagingAndFiltering;
 import org.meveo.api.dto.response.account.CustomersResponseDto;
-import org.meveo.api.exception.DeleteReferencedEntityException;
-import org.meveo.api.exception.EntityAlreadyExistsException;
-import org.meveo.api.exception.EntityDoesNotExistsException;
-import org.meveo.api.exception.MeveoApiException;
-import org.meveo.api.exception.MissingParameterException;
+import org.meveo.api.exception.*;
 import org.meveo.api.security.Interceptor.SecuredBusinessEntityMethod;
 import org.meveo.api.security.Interceptor.SecuredBusinessEntityMethodInterceptor;
 import org.meveo.api.security.filter.ListFilter;
@@ -39,6 +23,12 @@ import org.meveo.service.crm.impl.CustomerBrandService;
 import org.meveo.service.crm.impl.CustomerCategoryService;
 import org.meveo.service.crm.impl.CustomerService;
 import org.primefaces.model.SortOrder;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.interceptor.Interceptors;
+import java.util.List;
 
 /**
  * @author Edward P. Legaspi
@@ -216,12 +206,12 @@ public class CustomerApi extends AccountEntityApi {
         if (!StringUtils.isBlank(postData.getExternalRef2())) {
             customer.setExternalRef2(postData.getExternalRef2());
         }
-		if (!StringUtils.isBlank(postData.getVatNo())) {
-			customer.setVatNo(postData.getVatNo());
-		}
-		if (!StringUtils.isBlank(postData.getRegistrationNo())) {
-			customer.setRegistrationNo(postData.getRegistrationNo());
-		}
+        if (!StringUtils.isBlank(postData.getVatNo())) {
+            customer.setVatNo(postData.getVatNo());
+        }
+        if (!StringUtils.isBlank(postData.getRegistrationNo())) {
+            customer.setRegistrationNo(postData.getRegistrationNo());
+        }
 
         if (postData.getContactInformation() != null) {
             if (customer.getContactInformation() == null) {
@@ -298,7 +288,7 @@ public class CustomerApi extends AccountEntityApi {
     }
 
     @SecuredBusinessEntityMethod(resultFilter = ListFilter.class)
-    @FilterResults(propertyToFilter = "customers.customer", itemPropertiesToFilter = { @FilterProperty(property = "code", entityClass = Customer.class) })
+    @FilterResults(propertyToFilter = "customers.customer", itemPropertiesToFilter = {@FilterProperty(property = "code", entityClass = Customer.class)})
     public CustomersResponseDto list(CustomerDto postData, PagingAndFiltering pagingAndFiltering) throws MeveoApiException {
 
         if (pagingAndFiltering == null) {

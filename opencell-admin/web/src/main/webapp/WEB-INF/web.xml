@@ -126,6 +126,11 @@
 	</security-constraint>
 	<security-constraint>
 		<web-resource-collection>
+			<web-resource-name>BillingCustomWs</web-resource-name>
+			<url-pattern>/BillingCustomWs</url-pattern>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<web-resource-collection>
 			<web-resource-name>AccountWS</web-resource-name>
 			<url-pattern>/AccountWs</url-pattern>
 			<http-method>POST</http-method>

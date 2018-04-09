@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="63d882e4-12ba-48cb-9cf8-b557b7f5787f" activeEnvironment="Default" name="API Authorization" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="63d882e4-12ba-48cb-9cf8-b557b7f5787f" activeEnvironment="Default" name="API Authorization" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Environment" value="Default"/>
@@ -36,7 +36,7 @@
   </con:settings>
   <con:interface xsi:type="con:WsdlInterface" id="12eea81f-4c2a-4ab4-a6ca-023996713d59" wsaVersion="NONE" name="AccountWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}AccountWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/AccountWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/AccountWs</con:endpoint>
     </con:endpoints>
     <con:operation id="ebc69934-f96d-498e-a251-becae3d23dc7" isOneWay="false" action="" name="addLitigation" bindingOperationName="addLitigation" type="Request-Response" outputName="addLitigationResponse" inputName="addLitigation" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -273,7 +273,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="851c5e5b-0df9-4e9c-9774-e39fa8f93d3f" wsaVersion="NONE" name="CatalogWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}CatalogWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/CatalogWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/CatalogWs</con:endpoint>
     </con:endpoints>
     <con:operation id="de466d61-c13d-416c-9464-b73348400604" isOneWay="false" action="" name="createBusinessOfferModel" bindingOperationName="createBusinessOfferModel" type="Request-Response" outputName="createBusinessOfferModelResponse" inputName="createBusinessOfferModel" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -585,7 +585,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="cae91dcb-66de-4c55-b3c0-611ee17f70af" wsaVersion="NONE" name="FilterWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}FilterWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/FilterWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/FilterWs</con:endpoint>
     </con:endpoints>
     <con:operation id="a170dfd4-240b-4836-bbeb-b8966ed0a230" isOneWay="false" action="" name="createOrUpdateFilter" bindingOperationName="createOrUpdateFilter" type="Request-Response" outputName="createOrUpdateFilterResponse" inputName="createOrUpdateFilter" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -597,7 +597,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="0a39cdb7-1de6-46e4-bbe7-8f6e82a4e738" wsaVersion="NONE" name="FilteredListWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}FilteredListWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/FilteredListWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/FilteredListWs</con:endpoint>
     </con:endpoints>
     <con:operation id="68fd0f9d-65de-4627-80d4-aefd0cc91fac" isOneWay="false" action="" name="index" bindingOperationName="index" type="Request-Response" outputName="indexResponse" inputName="index" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -618,7 +618,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="c76e9651-0016-44a7-a365-2d2b24de2cf0" wsaVersion="NONE" name="InvoiceWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}InvoiceWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/InvoiceWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/InvoiceWs</con:endpoint>
     </con:endpoints>
     <con:operation id="3b7e863e-68f4-476e-b9f9-db9e1ca4e9f3" isOneWay="false" action="" name="createInvoice" bindingOperationName="createInvoice" type="Request-Response" outputName="createInvoiceResponse" inputName="createInvoice" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -663,7 +663,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="964885f6-3c18-4bdd-9190-ba1b37081771" wsaVersion="NONE" name="InvoicingWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}InvoicingWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/InvoicingWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/InvoicingWs</con:endpoint>
     </con:endpoints>
     <con:operation id="63b7f7e1-ce97-4dab-bb95-36360dbea726" isOneWay="false" action="" name="cancelBillingRun" bindingOperationName="cancelBillingRun" type="Request-Response" outputName="cancelBillingRunResponse" inputName="cancelBillingRun" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -693,7 +693,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="fb1e7ec9-17cb-42ea-8169-80915f4380e1" wsaVersion="NONE" name="JobWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}JobWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/JobWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/JobWs</con:endpoint>
     </con:endpoints>
     <con:operation id="e64bb3c3-7d14-4613-b7bb-930240be2cc8" isOneWay="false" action="" name="create" bindingOperationName="create" type="Request-Response" outputName="createResponse" inputName="create" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -738,7 +738,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="0bbc4cb4-e58a-4fa6-960d-2270c4e24d2e" wsaVersion="NONE" name="MediationWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}MediationWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/MediationWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/MediationWs</con:endpoint>
     </con:endpoints>
     <con:operation id="ffa03602-cb7c-4e57-9d4f-d7c492e28f30" isOneWay="false" action="" name="cancelReservation" bindingOperationName="cancelReservation" type="Request-Response" outputName="cancelReservationResponse" inputName="cancelReservation" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -762,7 +762,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="88d80ccf-833d-497e-9e09-52ab7f1f29ff" wsaVersion="NONE" name="ModuleWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}ModuleWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/ModuleWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/ModuleWs</con:endpoint>
     </con:endpoints>
     <con:operation id="67f9bb3d-b70a-4870-9ebe-078b8524df58" isOneWay="false" action="" name="create" bindingOperationName="create" type="Request-Response" outputName="createResponse" inputName="create" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -801,7 +801,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="83b8bdb2-b7b7-4061-aa19-665da2e16394" wsaVersion="NONE" name="NotificationWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}NotificationWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/NotificationWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/NotificationWs</con:endpoint>
     </con:endpoints>
     <con:operation id="90ec75ff-2eb9-419b-ace5-069360d786e3" isOneWay="false" action="" name="createEmailNotification" bindingOperationName="createEmailNotification" type="Request-Response" outputName="createEmailNotificationResponse" inputName="createEmailNotification" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -861,7 +861,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="92f38b6b-9f1c-4078-b177-a5f77e3adeb8" wsaVersion="NONE" name="PaymentWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}PaymentWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/PaymentWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/PaymentWs</con:endpoint>
     </con:endpoints>
     <con:operation id="c6f803c3-6fea-44bd-83cc-17eafa5170b7" isOneWay="false" action="" name="create" bindingOperationName="create" type="Request-Response" outputName="createResponse" inputName="create" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -882,7 +882,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="63f2a050-79b9-4e44-8be3-6bb29b160b4d" wsaVersion="NONE" name="ScriptInstanceWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}ScriptInstanceWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/ScriptInstanceWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/ScriptInstanceWs</con:endpoint>
     </con:endpoints>
     <con:operation id="79f4248a-5454-40fc-932c-adb31b480b95" isOneWay="false" action="" name="create" bindingOperationName="create" type="Request-Response" outputName="createResponse" inputName="create" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -906,7 +906,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="0e0ff08e-67e7-43b3-b03e-dd4e12d77cc7" wsaVersion="NONE" name="SettingsWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}SettingsWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/SettingsWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/SettingsWs</con:endpoint>
     </con:endpoints>
     <con:operation id="7ab7170f-1ae2-4010-bb3e-bf782830ca72" isOneWay="false" action="" name="createBillingCycle" bindingOperationName="createBillingCycle" type="Request-Response" outputName="createBillingCycleResponse" inputName="createBillingCycle" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -1296,7 +1296,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="8c2affeb-ab12-43ad-adde-ed28dba3be5d" wsaVersion="NONE" name="SubscriptionWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}SubscriptionWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/SubscriptionWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/SubscriptionWs</con:endpoint>
     </con:endpoints>
     <con:operation id="eb311c9f-15de-4d3f-b422-da737c5eb229" isOneWay="false" action="" name="activateServices" bindingOperationName="activateServices" type="Request-Response" outputName="activateServicesResponse" inputName="activateServices" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -1353,7 +1353,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="46feb4ff-ba6f-4554-a95b-e943a466084d" wsaVersion="NONE" name="WalletWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}WalletWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/WalletWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/WalletWs</con:endpoint>
     </con:endpoints>
     <con:operation id="5d0ddec3-09b0-439c-838f-58dafad04d96" isOneWay="false" action="" name="cancelReservation" bindingOperationName="cancelReservation" type="Request-Response" outputName="cancelReservationResponse" inputName="cancelReservation" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -1404,7 +1404,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="cb986e97-8b56-4aa7-876e-d5d68f9876fb" wsaVersion="NONE" name="ReportingWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}ReportingWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/ReportingWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/ReportingWs</con:endpoint>
     </con:endpoints>
     <con:operation id="f8a3bab9-a28e-4778-b116-953476120ce2" isOneWay="false" action="" name="createBarChart" bindingOperationName="createBarChart" type="Request-Response" outputName="createBarChartResponse" inputName="createBarChart" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -1467,7 +1467,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="405f4de6-2366-460c-88cd-c0e25de8ef4c" wsaVersion="NONE" name="EntityCustomizationWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}EntityCustomizationWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/EntityCustomizationWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/EntityCustomizationWs</con:endpoint>
     </con:endpoints>
     <con:operation id="b924835f-f5bc-4eee-a684-a8b4439b1a87" isOneWay="false" action="" name="createAction" bindingOperationName="createAction" type="Request-Response" outputName="createActionResponse" inputName="createAction" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -1551,7 +1551,7 @@
   </con:interface>
   <con:interface xsi:type="con:WsdlInterface" id="c43cbf05-c104-49b2-9b98-52dc0ce80a23" wsaVersion="NONE" name="WorkflowWsSoapBinding" type="wsdl" bindingName="{http://impl.wf.ws.api.meveo.org/}WorkflowWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#meveoUrl}/WorkflowWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>http://localhost:8080/opencell/WorkflowWs</con:endpoint>
     </con:endpoints>
     <con:operation id="613cae81-2eba-4a5c-9844-f478ddec3b7c" isOneWay="false" action="" name="create" bindingOperationName="create" type="Request-Response" outputName="createResponse" inputName="create" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
@@ -1587,7 +1587,7 @@
   </con:interface>
   <con:interface xsi:type="con:RestService" id="7bf31d37-dd0b-4792-a1c9-c37a6c092b36" wadlVersion="http://wadl.dev.java.net/2009/02" name="Elastic search" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>${#Project#elasticSearchUrl}</con:endpoint>
     </con:endpoints>
     <con:resource name="accounts" path="/accounts/AccountEntity/{id}" id="dc93348b-fbb2-4ed5-9fcd-c437a622a50f">
@@ -1784,7 +1784,7 @@
   </con:interface>
   <con:interface xsi:type="con:RestService" id="1a25156f-0b69-441a-80cc-45664a7820bc" wadlVersion="http://wadl.dev.java.net/2009/02" name="Keycloak Admin API" type="rest" basePath="" definitionUrl="C:\Users\tonys\Desktop\KeycloakAdmin.wadl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
-    <con:endpoints>
+    <con:definitionCache/><con:endpoints>
       <con:endpoint>${#Project#keycloakUrl}</con:endpoint>
     </con:endpoints>
     <con:resource name="user roles" path="/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}" id="ba22f86f-bed3-41b5-8acc-b650897146c4">
@@ -2064,10 +2064,10 @@ for(testSuiteItem in  testCase.testSuite.project.getTestSuiteList()){
           <con:value>Basic bWV2ZW8uYWRtaW46bWV2ZW8uYWRtaW4=</con:value>
         </con:property>
       </con:properties>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:properties/>
     <con:setupScript/>
-  </con:testSuite>
+  <con:reportParameters/></con:testSuite>
   <con:testSuite id="29776575-4f06-47f5-9b59-8a1a68c88d1c" name="Setup base data">
     <con:settings/>
     <con:runType>SEQUENTIAL</con:runType>
@@ -2854,7 +2854,7 @@ for(testSuiteItem in  testCase.testSuite.project.getTestSuiteList()){
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="e9f79eeb-3f65-4d30-adc3-a0614420718e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Cleanup data - restore provider" searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="Restore provider" id="0705087a-cfe2-4e7b-93c2-e10b8da3985d">
@@ -2937,7 +2937,7 @@ for(testSuiteItem in  testCase.testSuite.project.getTestSuiteList()){
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="5fdb7e0c-deff-4f24-9831-65a3c8f978da" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Clean up data - user and ES" searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="Restore User to default" id="c2ceb851-67ee-4135-a7b3-4fd6040cbfd9">
@@ -3017,7 +3017,7 @@ for(testSuiteItem in  testCase.testSuite.project.getTestSuiteList()){
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="227e9e26-790d-4057-815e-7aed8e5b48a5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Setup Configuration: InvType, BC and Seller, provider, user, role" searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="Update Provider" id="b5dc8384-9dba-4806-8034-6a659cebc5b7">
@@ -3251,7 +3251,7 @@ for(testSuiteItem in  testCase.testSuite.project.getTestSuiteList()){
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Setup Catalog: Charges, Services, Offer, PP, Counters, Wallets" searchProperties="true" id="fe1d7e1f-858a-439a-a1d1-76b54cf3a456">
       <con:settings/>
       <con:testStep type="request" name="Create PrepaidWallet" id="19b40514-10c9-4ba9-b309-250e9fddee45">
@@ -5031,7 +5031,7 @@ public class RatingScript extends Script {
           <con:value>684</con:value>
         </con:property>
       </con:properties>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="2d5d9218-b5f5-45ec-99cc-f0ba5b6ea641" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Setup Customer accounts, subscription, access" searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="Create Customer" id="56249dec-d299-43e1-8ef1-7ca34c634ff8">
@@ -5862,7 +5862,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="30943dec-d073-4203-8ff4-40340f89dff2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Setup Administration: Measurable Qtt,Charts, Notifications, etc.." searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="create MeasurableQuantities" id="614da3e2-f1e5-4004-b2fa-6c7315e402b7">
@@ -6491,11 +6491,11 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="1d26b05f-9c05-4277-9d69-0e6ed93358ea" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Setup Script BOM, BSM, BAM" searchProperties="true">
       <con:settings/>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Setup TerminationReason" searchProperties="true" id="1ffea3b3-36e3-467a-8eba-16953c446ca6">
       <con:settings/>
       <con:testStep type="request" name="update TERM_REASON_1" id="ddc4134f-55d7-4c67-95d1-5afaa1c629f8">
@@ -6622,10 +6622,10 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:properties/>
     <con:setupScript>//testSuite.setPropertyValue('index',(testSuite.getPropertyValue('index').toInteger()+1).toString());</con:setupScript>
-  </con:testSuite>
+  <con:reportParameters/></con:testSuite>
   <con:testSuite id="09b9efa9-e928-4f0a-82e1-876f1b091e1d" name="User API">
     <con:settings/>
     <con:runType>SEQUENTIAL</con:runType>
@@ -6842,7 +6842,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="3fa11fbb-b3d2-4c16-858b-1e532db3b1d1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Super Admin" searchProperties="true">
       <con:settings/>
       <con:testStep type="restrequest" name="Get keycloak token - AUTHORIZATION_MANUAL" id="7aa9b788-9511-48e2-afb7-f67dd755c90e">
@@ -7213,7 +7213,7 @@ public class RatingScript extends Script {
             <con:sourceStep>Get Roles - BEARER_TOKEN</con:sourceStep>
             <con:sourcePath>$..[?(@.name=='superAdministrateur")]</con:sourcePath>
             <con:targetType>Request</con:targetType>
-            <con:targetStep xsi:nil="true"/>
+            <con:targetStep>Set TestUser1 as SuperAdmin - BEARER_TOKEN</con:targetStep>
             <con:type>JSONPATH</con:type>
             <con:targetTransferType>JSONPATH</con:targetTransferType>
             <con:upgraded>true</con:upgraded>
@@ -7235,7 +7235,7 @@ public class RatingScript extends Script {
       <con:testStep type="restrequest" name="Set TestUser1 as SuperAdmin - BEARER_TOKEN" id="5dd68e6e-11c9-46f3-a7dd-370e4c89609d">
         <con:settings/>
         <con:config service="Keycloak Admin API" methodName="POST" resourcePath="/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="Set TestUser1 as SuperAdmin" id="c7ab740c-910f-4ae9-abeb-9b8c196f5528" mediaType="application/json" postQueryString="false">
+          <con:restRequest name="Set TestUser1 as SuperAdmin - BEARER_TOKEN" id="c7ab740c-910f-4ae9-abeb-9b8c196f5528" mediaType="application/json" postQueryString="false">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer ${bearer-token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
             </con:settings>
@@ -7716,7 +7716,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="03939fca-91d5-493d-8940-ab4b92a035d8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Admin" searchProperties="true">
       <con:settings/>
       <con:testStep type="restrequest" name="Get keycloak token - AUTHORIZATION_MANUAL" id="8da1f76a-d8d2-4edd-9161-42baa7a799f0">
@@ -8087,7 +8087,7 @@ public class RatingScript extends Script {
             <con:sourceStep>Get Roles - BEARER_TOKEN</con:sourceStep>
             <con:sourcePath>$..[?(@.name=='administrateur")]</con:sourcePath>
             <con:targetType>Request</con:targetType>
-            <con:targetStep xsi:nil="true"/>
+            <con:targetStep>Set TestUser1 as Administrator - BEARER_TOKEN</con:targetStep>
             <con:type>JSONPATH</con:type>
             <con:targetTransferType>JSONPATH</con:targetTransferType>
             <con:upgraded>true</con:upgraded>
@@ -8109,7 +8109,7 @@ public class RatingScript extends Script {
       <con:testStep type="restrequest" name="Set TestUser1 as Administrator - BEARER_TOKEN" id="47de275f-2647-45e4-b2a3-e0b42a275020">
         <con:settings/>
         <con:config service="Keycloak Admin API" methodName="POST" resourcePath="/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="Copy of Set TestUser1 as SuperAdmin - BEARER_TOKEN" id="c7ab740c-910f-4ae9-abeb-9b8c196f5528" mediaType="application/json" postQueryString="false">
+          <con:restRequest name="Set TestUser1 as Administrator - BEARER_TOKEN" id="c7ab740c-910f-4ae9-abeb-9b8c196f5528" mediaType="application/json" postQueryString="false">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer ${bearer-token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
             </con:settings>
@@ -8590,7 +8590,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="dcf29e01-5f26-457e-9b08-69b0649ff3b1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UserManagement" searchProperties="true">
       <con:settings/>
       <con:testStep type="restrequest" name="Get keycloak token - AUTHORIZATION_MANUAL" id="3c3e5602-4966-4770-b888-14a787e5e671">
@@ -8961,7 +8961,7 @@ public class RatingScript extends Script {
             <con:sourceStep>Get Roles - BEARER_TOKEN</con:sourceStep>
             <con:sourcePath>$..[?(@.name=='userManagement")]</con:sourcePath>
             <con:targetType>Request</con:targetType>
-            <con:targetStep xsi:nil="true"/>
+            <con:targetStep>Set TestUser1 as UserManagement - BEARER_TOKEN</con:targetStep>
             <con:type>JSONPATH</con:type>
             <con:targetTransferType>JSONPATH</con:targetTransferType>
             <con:upgraded>true</con:upgraded>
@@ -8983,7 +8983,7 @@ public class RatingScript extends Script {
       <con:testStep type="restrequest" name="Set TestUser1 as UserManagement - BEARER_TOKEN" id="820e74cd-e9a9-40e8-93c8-b1be3ac01326">
         <con:settings/>
         <con:config service="Keycloak Admin API" methodName="POST" resourcePath="/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <con:restRequest name="Copy of Set TestUser1 as SuperAdmin - BEARER_TOKEN" id="c7ab740c-910f-4ae9-abeb-9b8c196f5528" mediaType="application/json" postQueryString="false">
+          <con:restRequest name="Set TestUser1 as UserManagement - BEARER_TOKEN" id="c7ab740c-910f-4ae9-abeb-9b8c196f5528" mediaType="application/json" postQueryString="false">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Bearer ${bearer-token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
             </con:settings>
@@ -9464,7 +9464,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="87d7ff6a-656f-4c73-a6a3-ca51527a34a6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UserSelfManagement" searchProperties="true">
       <con:settings/>
       <con:testStep type="restrequest" name="Get keycloak token - AUTHORIZATION_MANUAL" id="df00a0c8-e3de-40c4-adf3-cfb8c9be2183">
@@ -10330,7 +10330,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="697b66b5-a9e9-444f-86ea-2a32ef76edc8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Cleanup" searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="Delete AdminVisualization UserRole - AUTHORIZATION_SUPERADMIN" id="1280c2b8-0621-4818-81cb-1820d181365c">
@@ -10519,14 +10519,14 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:properties>
       <con:property>
         <con:name>index</con:name>
         <con:value>01</con:value>
       </con:property>
     </con:properties>
-  </con:testSuite>
+  <con:reportParameters/></con:testSuite>
   <con:testSuite id="33560d18-e1e9-451a-a2f2-d543a800b70f" name="Remove base data">
     <con:settings/>
     <con:runType>SEQUENTIAL</con:runType>
@@ -11218,7 +11218,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Remove Catalog" searchProperties="true" id="bd40849c-2ccc-4c8c-8a1e-e1ba39899baf">
       <con:settings/>
       <con:testStep type="request" name="findRecurringChargeTemplate" id="ce069832-d841-4f61-83c9-66e96629521c">
@@ -12152,7 +12152,7 @@ public class RatingScript extends Script {
         </con:config>
       </con:testStep>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="271aa4af-035c-4e01-be83-77eda371277f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Remove Customer accounts, subsription, access" searchProperties="true">
       <con:settings/>
       <con:testStep type="request" name="find Customer" id="d0697b21-3fb7-4496-bffc-4d0df9d92fde">
@@ -12561,14 +12561,14 @@ public class RatingScript extends Script {
       </con:testStep>
       <con:setupScript/>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:testCase id="44edd663-e606-496d-ad98-a40a91ce96a7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Remove Script BOM, BSM, BAM" searchProperties="true">
       <con:settings/>
       <con:properties/>
-    </con:testCase>
+    <con:reportParameters/></con:testCase>
     <con:properties/>
     <con:setupScript/>
-  </con:testSuite>
+  <con:reportParameters/></con:testSuite>
   <con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:endpoint mode="OVERRIDE">http://192.168.10.14:8080/opencell/SettingsWs</con:endpoint>
   </con:endpointStrategy>
@@ -12647,7 +12647,7 @@ public class RatingScript extends Script {
     </con:property>
   </con:properties>
   <con:wssContainer/>
-  <con:oAuth2ProfileContainer/>
+  <con:databaseConnectionContainer/><con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
-  <con:sensitiveInformation/>
+  <con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/>
 </con:soapui-project>

@@ -18,16 +18,8 @@
  */
 package org.meveo.model.catalog;
 
+import javax.persistence.*;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 /**
  * Represents a calendar that operates on two calendars joining them by union or intersection. Union will return the greatest matched period while intersect will return the
@@ -99,6 +91,8 @@ public class CalendarJoin extends Calendar {
      * @return Next calendar date.
      */
     public Date nextCalendarDate(Date date) {
+        joinCalendar1.setInitDate(this.getInitDate());
+        joinCalendar2.setInitDate(this.getInitDate());
 
         Date date1 = joinCalendar1.nextCalendarDate(date);
         Date date2 = joinCalendar2.nextCalendarDate(date);

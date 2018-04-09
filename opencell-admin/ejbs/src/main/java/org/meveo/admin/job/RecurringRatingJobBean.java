@@ -1,20 +1,5 @@
 package org.meveo.admin.job;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
-import javax.interceptor.Interceptors;
-
-import org.meveo.admin.async.RecurringChargeAsync;
 import org.meveo.admin.async.SubListCreator;
 import org.meveo.admin.job.logging.JobLoggingInterceptor;
 import org.meveo.event.qualifier.Rejected;
@@ -26,6 +11,20 @@ import org.meveo.model.shared.DateUtils;
 import org.meveo.service.billing.impl.RecurringChargeInstanceService;
 import org.meveo.service.crm.impl.CustomFieldInstanceService;
 import org.slf4j.Logger;
+
+import org.meveo.admin.async.RecurringChargeAsync;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
+import javax.interceptor.Interceptors;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @Stateless
 public class RecurringRatingJobBean implements Serializable {
@@ -67,7 +66,7 @@ public class RecurringRatingJobBean implements Serializable {
                 if (nbRuns == -1) {
                     nbRuns = (long) Runtime.getRuntime().availableProcessors();
                 }
-                rateUntilDate = (Date) customFieldInstanceService.getCFValue(jobInstance, "rateUtilDate");
+                rateUntilDate = (Date) customFieldInstanceService.getCFValue(jobInstance,"rateUntilDate");
             } catch (Exception e) {
                 nbRuns = new Long(1);
                 waitingMillis = new Long(0);

@@ -18,44 +18,30 @@
  */
 package org.meveo.service.billing.impl;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-import javax.persistence.NoResultException;
-
 import org.meveo.admin.exception.BusinessException;
 import org.meveo.admin.exception.IncorrectServiceInstanceException;
 import org.meveo.admin.exception.IncorrectSusbcriptionException;
 import org.meveo.commons.utils.ParamBean;
 import org.meveo.commons.utils.QueryBuilder;
 import org.meveo.commons.utils.StringUtils;
-import org.meveo.model.billing.InstanceStatusEnum;
-import org.meveo.model.billing.OneShotChargeInstance;
-import org.meveo.model.billing.RecurringChargeInstance;
-import org.meveo.model.billing.ServiceInstance;
-import org.meveo.model.billing.Subscription;
-import org.meveo.model.billing.SubscriptionStatusEnum;
-import org.meveo.model.billing.SubscriptionTerminationReason;
-import org.meveo.model.billing.UsageChargeInstance;
-import org.meveo.model.catalog.OfferTemplate;
-import org.meveo.model.catalog.OneShotChargeTemplate;
-import org.meveo.model.catalog.RecurringChargeTemplate;
-import org.meveo.model.catalog.ServiceChargeTemplate;
-import org.meveo.model.catalog.ServiceChargeTemplateUsage;
-import org.meveo.model.catalog.ServiceTemplate;
+import org.meveo.model.billing.*;
+import org.meveo.model.catalog.*;
 import org.meveo.model.shared.DateUtils;
 import org.meveo.service.base.BusinessService;
 import org.meveo.service.catalog.impl.ServiceTemplateService;
 import org.meveo.service.script.service.ServiceModelScriptService;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.NoResultException;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
 /**
  * ServiceInstanceService.
- * 
- * @author anasseh
  *
+ * @author anasseh
  */
 @Stateless
 public class ServiceInstanceService extends BusinessService<ServiceInstance> {
@@ -97,10 +83,10 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
     /**
      * Find a service instance list by subscription entity, service template code and service instance status list.
-     * 
-     * @param code the service template code
+     *
+     * @param code         the service template code
      * @param subscription the subscription entity
-     * @param statuses service instance statuses
+     * @param statuses     service instance statuses
      * @return the ServiceInstance list found
      */
     @SuppressWarnings("unchecked")
@@ -121,7 +107,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
             serviceInstances = (List<ServiceInstance>) qb.getQuery(getEntityManager()).getResultList();
             log.debug("end of find {} by code and subscription/status (code={}). Result found={}.", "ServiceInstance", code,
-                serviceInstances != null && !serviceInstances.isEmpty());
+                    serviceInstances != null && !serviceInstances.isEmpty());
         } catch (NoResultException nre) {
             log.debug("findByCodeAndSubscription : no service has been found");
         } catch (Exception e) {
@@ -133,22 +119,22 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
     /**
      * Instantiate a service
-     * 
+     *
      * @param serviceInstance service instance to instantiate
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void serviceInstanciation(ServiceInstance serviceInstance) throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
         serviceInstanciation(serviceInstance, null, null, false);
     }
 
     /**
-     * @param serviceInstance service instance to instantiate
+     * @param serviceInstance     service instance to instantiate
      * @param descriptionOverride overridden description
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void serviceInstanciation(ServiceInstance serviceInstance, String descriptionOverride)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
@@ -166,10 +152,10 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
     }
 
     /**
-     * @param serviceInstance service instance
+     * @param serviceInstance    service instance
      * @param subscriptionAmount subscription amount
-     * @param terminationAmount termination amount
-     * @param isVirtual true/false
+     * @param terminationAmount  termination amount
+     * @param isVirtual          true/false
      * @throws BusinessException business exception
      */
     public void serviceInstanciation(ServiceInstance serviceInstance, BigDecimal subscriptionAmount, BigDecimal terminationAmount, boolean isVirtual) throws BusinessException {
@@ -177,18 +163,18 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
     }
 
     /**
-     * @param serviceInstance service instance
+     * @param serviceInstance     service instance
      * @param descriptionOverride overridden description
-     * @param subscriptionAmount subscription amount
-     * @param terminationAmount termination amount
-     * @param isVirtual true/false
+     * @param subscriptionAmount  subscription amount
+     * @param terminationAmount   termination amount
+     * @param isVirtual           true/false
      * @throws BusinessException business exception
      */
     public void serviceInstanciation(ServiceInstance serviceInstance, String descriptionOverride, BigDecimal subscriptionAmount, BigDecimal terminationAmount, boolean isVirtual)
             throws BusinessException {
 
         log.debug("Will instantiate service {} for subscription {} quantity {}", serviceInstance.getCode(), serviceInstance.getSubscription().getCode(),
-            serviceInstance.getQuantity());
+                serviceInstance.getQuantity());
 
         ServiceTemplate serviceTemplate = serviceInstance.getServiceTemplate();
 
@@ -202,14 +188,14 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
                 List<ServiceInstance> serviceInstances = findByCodeSubscriptionAndStatus(serviceTemplate.getCode(), subscription, InstanceStatusEnum.INACTIVE);
                 if (serviceInstances != null && !serviceInstances.isEmpty()) {
                     throw new IncorrectServiceInstanceException(
-                        "Service instance with code=" + serviceInstance.getCode() + ", subscription code=" + subscription.getCode() + " is already instantiated.");
+                            "Service instance with code=" + serviceInstance.getCode() + ", subscription code=" + subscription.getCode() + " is already instantiated.");
                 }
             } else {
                 List<ServiceInstance> serviceInstances = findByCodeSubscriptionAndStatus(serviceTemplate.getCode(), subscription, InstanceStatusEnum.INACTIVE,
-                    InstanceStatusEnum.ACTIVE);
+                        InstanceStatusEnum.ACTIVE);
                 if (serviceInstances != null && !serviceInstances.isEmpty()) {
                     throw new IncorrectServiceInstanceException(
-                        "Service instance with code=" + serviceInstance.getCode() + " and subscription code=" + subscription.getCode() + " is already instantiated or activated.");
+                            "Service instance with code=" + serviceInstance.getCode() + " and subscription code=" + subscription.getCode() + " is already instantiated or activated.");
                 }
             }
         }
@@ -235,19 +221,19 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
         for (ServiceChargeTemplate<RecurringChargeTemplate> serviceChargeTemplate : serviceTemplate.getServiceRecurringCharges()) {
             RecurringChargeInstance chargeInstance = recurringChargeInstanceService.recurringChargeInstanciation(serviceInstance, serviceChargeTemplate.getChargeTemplate(),
-                isVirtual);
+                    isVirtual);
             serviceInstance.getRecurringChargeInstances().add(chargeInstance);
         }
 
         for (ServiceChargeTemplate<OneShotChargeTemplate> serviceChargeTemplate : serviceTemplate.getServiceSubscriptionCharges()) {
             OneShotChargeInstance chargeInstance = oneShotChargeInstanceService.oneShotChargeInstanciation(serviceInstance, serviceChargeTemplate.getChargeTemplate(),
-                subscriptionAmount, null, true, isVirtual);
+                    subscriptionAmount, null, true, isVirtual);
             serviceInstance.getSubscriptionChargeInstances().add(chargeInstance);
         }
 
         for (ServiceChargeTemplate<OneShotChargeTemplate> serviceChargeTemplate : serviceTemplate.getServiceTerminationCharges()) {
             OneShotChargeInstance chargeInstance = oneShotChargeInstanceService.oneShotChargeInstanciation(serviceInstance, serviceChargeTemplate.getChargeTemplate(),
-                terminationAmount, null, false, isVirtual);
+                    terminationAmount, null, false, isVirtual);
             serviceInstance.getTerminationChargeInstances().add(chargeInstance);
         }
 
@@ -267,35 +253,94 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
     /**
      * Activate a service, the subscription charges are applied.
      *
-     * @param serviceInstance service instance
-     * @param amountWithoutTax amount without tax
+     * @param serviceInstance   service instance
+     * @param amountWithoutTax  amount without tax
      * @param amountWithoutTax2 amount without tax
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void serviceActivation(ServiceInstance serviceInstance, BigDecimal amountWithoutTax, BigDecimal amountWithoutTax2)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
         serviceActivation(serviceInstance, true, amountWithoutTax, amountWithoutTax2);
     }
 
+    public void reactivateServiceIfSuspend(ServiceInstance serviceInstance, Date reactivationDate)
+            throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
+
+        String serviceCode = serviceInstance.getCode();
+        if (reactivationDate == null) {
+            reactivationDate = new Date();
+        }
+
+        Subscription subscription = serviceInstance.getSubscription();
+        if (subscription == null) {
+            throw new IncorrectSusbcriptionException("service Instance does not have subscrption . serviceCode=" + serviceInstance.getCode());
+        }
+        ServiceTemplate serviceTemplate = serviceInstance.getServiceTemplate();
+        checkServiceAssociatedWithOffer(serviceInstance);
+
+        serviceInstance.setStatus(InstanceStatusEnum.ACTIVE);
+        serviceInstance.setSubscriptionDate(reactivationDate);
+        serviceInstance.setDescription(serviceTemplate.getDescription());
+        serviceInstance.setTerminationDate(null);
+
+        String descriptionOverride = serviceTemplate.getDescriptionOverride();
+        serviceTemplate = serviceTemplateService.findById(serviceTemplate.getId());
+
+
+        ServiceInstance serviceInstanceNew = new ServiceInstance();
+        serviceInstanceNew.setCode(serviceTemplate.getCode());
+
+        serviceInstanceNew.setDescription(descriptionOverride);
+
+        serviceInstanceNew.setServiceTemplate(serviceTemplate);
+        serviceInstanceNew.setSubscription((Subscription) serviceInstance.getSubscription());
+        if (serviceInstance.getSubscriptionDate() != null) {
+            serviceInstanceNew.setSubscriptionDate(serviceInstance.getSubscriptionDate());
+        } else {
+            java.util.Calendar calendar = java.util.Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.set(java.util.Calendar.HOUR_OF_DAY, 0);
+            calendar.set(java.util.Calendar.MINUTE, 0);
+            calendar.set(java.util.Calendar.SECOND, 0);
+            calendar.set(java.util.Calendar.MILLISECOND, 0);
+            serviceInstanceNew.setSubscriptionDate(calendar.getTime());
+        }
+        serviceInstanceNew.setQuantity(serviceInstance.getQuantity());
+        serviceInstanciation(serviceInstanceNew, descriptionOverride);
+
+        serviceActivation(serviceInstanceNew, null, null);
+
+        terminateService(serviceInstance, new Date(), false, false, false, "ordernumber", null);
+
+
+    }
+
+
     /**
      * Activate a service, the subscription charges can be applied or not.
-     * 
-     * @param serviceInstance service instance
+     *
+     * @param serviceInstance          service instance
      * @param applySubscriptionCharges true/false
-     * @param amountWithoutTax amount without tax
-     * @param amountWithoutTax2 amount without tax
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @param amountWithoutTax         amount without tax
+     * @param amountWithoutTax2        amount without tax
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void serviceActivation(ServiceInstance serviceInstance, boolean applySubscriptionCharges, BigDecimal amountWithoutTax, BigDecimal amountWithoutTax2)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
+
+        if(serviceInstance.getStatus()== InstanceStatusEnum.SUSPENDED){
+            reactivateServiceIfSuspend(serviceInstance,null);
+            return;
+        }
+
         Subscription subscription = serviceInstance.getSubscription();
 
         log.debug("Will activate service {} for subscription {} quantity {}", serviceInstance.getCode(), serviceInstance.getSubscription().getCode(),
-            serviceInstance.getQuantity());
+                serviceInstance.getQuantity());
 
         // String serviceCode = serviceInstance.getCode();
         if (subscription == null) {
@@ -314,7 +359,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
             List<ServiceInstance> serviceInstances = findByCodeSubscriptionAndStatus(serviceInstance.getCode(), subscription, InstanceStatusEnum.ACTIVE);
             if (serviceInstances != null && !serviceInstances.isEmpty()) {
                 throw new IncorrectServiceInstanceException(
-                    "Service instance with code=" + serviceInstance.getCode() + ", subscription code=" + subscription.getCode() + " is already activated.");
+                        "Service instance with code=" + serviceInstance.getCode() + ", subscription code=" + subscription.getCode() + " is already activated.");
             }
         }
 
@@ -349,7 +394,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
                 oneShotChargeInstance.setChargeDate(serviceInstance.getSubscriptionDate());
 
                 oneShotChargeInstanceService.oneShotChargeApplication(subscription, oneShotChargeInstance, serviceInstance.getSubscriptionDate(),
-                    oneShotChargeInstance.getQuantity(), serviceInstance.getOrderNumber());
+                        oneShotChargeInstance.getQuantity(), serviceInstance.getOrderNumber());
                 oneShotChargeInstance.setStatus(InstanceStatusEnum.CLOSED);
                 oneShotChargeInstanceService.update(oneShotChargeInstance);
             }
@@ -375,7 +420,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
                 }
             }
             int nbRating = recurringChargeInstanceService.applyRecurringCharge(recurringChargeInstance.getId(),
-                serviceInstance.getRateUntilDate() == null ? new Date() : serviceInstance.getRateUntilDate(), serviceInstance.getRateUntilDate() != null);
+                    serviceInstance.getRateUntilDate() == null ? new Date() : serviceInstance.getRateUntilDate(), serviceInstance.getRateUntilDate() != null);
             log.debug("rated " + nbRating + " missing periods during activation");
         }
         for (UsageChargeInstance usageChargeInstance : serviceInstance.getUsageChargeInstances()) {
@@ -393,39 +438,39 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
     /**
      * Terminate a service.
-     * 
-     * @param serviceInstance service instance
-     * @param terminationDate termination date
+     *
+     * @param serviceInstance   service instance
+     * @param terminationDate   termination date
      * @param terminationReason termination reason
-     * @param orderNumber order number
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @param orderNumber       order number
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void terminateService(ServiceInstance serviceInstance, Date terminationDate, SubscriptionTerminationReason terminationReason, String orderNumber)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
 
         terminateService(serviceInstance, terminationDate, terminationReason.isApplyAgreement(), terminationReason.isApplyReimbursment(),
-            terminationReason.isApplyTerminationCharges(), orderNumber, terminationReason);
+                terminationReason.isApplyTerminationCharges(), orderNumber, terminationReason);
 
     }
 
     /**
      * Terminate a service.
-     * 
-     * @param serviceInstance service instance
-     * @param terminationDate termination date
-     * @param applyAgreement apply agreement
-     * @param applyReimbursment apply reimbursement
+     *
+     * @param serviceInstance         service instance
+     * @param terminationDate         termination date
+     * @param applyAgreement          apply agreement
+     * @param applyReimbursment       apply reimbursement
      * @param applyTerminationCharges apply termination charges
-     * @param orderNumber order number
-     * @param terminationReason termination reason
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @param orderNumber             order number
+     * @param terminationReason       termination reason
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void terminateService(ServiceInstance serviceInstance, Date terminationDate, boolean applyAgreement, boolean applyReimbursment, boolean applyTerminationCharges,
-            String orderNumber, SubscriptionTerminationReason terminationReason) throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
+                                 String orderNumber, SubscriptionTerminationReason terminationReason) throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
 
         if (serviceInstance.getId() != null) {
             log.info("terminateService terminationDate={}, serviceInstanceId={}", terminationDate, serviceInstance.getId());
@@ -447,7 +492,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
         // execute termination script
         if (serviceInstance.getServiceTemplate().getBusinessServiceModel() != null && serviceInstance.getServiceTemplate().getBusinessServiceModel().getScript() != null) {
             serviceModelScriptService.terminateServiceInstance(serviceInstance, serviceInstance.getServiceTemplate().getBusinessServiceModel().getScript().getCode(),
-                terminationDate, terminationReason);
+                    terminationDate, terminationReason);
         }
 
         for (RecurringChargeInstance recurringChargeInstance : serviceInstance.getRecurringChargeInstances()) {
@@ -514,9 +559,9 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
     /**
      * @param serviceInstance service instance
      * @param terminationDate termination date
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void updateTerminationMode(ServiceInstance serviceInstance, Date terminationDate)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
@@ -525,7 +570,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
         SubscriptionTerminationReason newReason = serviceInstance.getSubscriptionTerminationReason();
 
         log.info("updateTerminationMode terminationDate={},serviceInstanceId={},newApplyReimbursment=#2,newApplyAgreement=#3,newApplyTerminationCharges=#4", terminationDate,
-            serviceInstance.getId(), newReason.isApplyReimbursment(), newReason.isApplyAgreement(), newReason.isApplyTerminationCharges());
+                serviceInstance.getId(), newReason.isApplyReimbursment(), newReason.isApplyAgreement(), newReason.isApplyTerminationCharges());
 
         String serviceCode = serviceInstance.getCode();
         Subscription subscription = serviceInstance.getSubscription();
@@ -543,10 +588,10 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
     /**
      * @param serviceInstance service instance
-     * @param suspensionDate suspension date
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @param suspensionDate  suspension date
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void serviceSuspension(ServiceInstance serviceInstance, Date suspensionDate)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
@@ -583,11 +628,11 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
     }
 
     /**
-     * @param serviceInstance service instance
+     * @param serviceInstance  service instance
      * @param reactivationDate reactivation date
-     * @throws IncorrectSusbcriptionException incorrect subscription exception
+     * @throws IncorrectSusbcriptionException    incorrect subscription exception
      * @throws IncorrectServiceInstanceException incorrect service instance exception
-     * @throws BusinessException business exception
+     * @throws BusinessException                 business exception
      */
     public void serviceReactivation(ServiceInstance serviceInstance, Date reactivationDate)
             throws IncorrectSusbcriptionException, IncorrectServiceInstanceException, BusinessException {
@@ -627,7 +672,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
 
         if (serviceInstance.getServiceTemplate().getBusinessServiceModel() != null && serviceInstance.getServiceTemplate().getBusinessServiceModel().getScript() != null) {
             serviceModelScriptService.reactivateServiceInstance(serviceInstance, serviceInstance.getServiceTemplate().getBusinessServiceModel().getScript().getCode(),
-                reactivationDate);
+                    reactivationDate);
         }
     }
 
@@ -690,7 +735,7 @@ public class ServiceInstanceService extends BusinessService<ServiceInstance> {
             qb.addCriterion("c.code", "=", serviceInstanceCode, true);
             qb.addCriterion("c.subscription.code", "=", subscriptionCode, true);
             serviceInstances = (List<ServiceInstance>) qb.getQuery(getEntityManager()).getResultList();
-            log.debug("end of find {} by code (code={}). Result found={}.", new Object[] { "ServiceInstance", serviceInstanceCode, serviceInstances != null });
+            log.debug("end of find {} by code (code={}). Result found={}.", new Object[]{"ServiceInstance", serviceInstanceCode, serviceInstances != null});
 
         } catch (NoResultException nre) {
             log.debug("listServiceInstance : no service has been found");

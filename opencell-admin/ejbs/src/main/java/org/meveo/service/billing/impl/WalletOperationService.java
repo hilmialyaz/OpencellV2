@@ -1064,7 +1064,7 @@ public class WalletOperationService extends BusinessService<WalletOperation> {
             // n'appliquer le prorata que dans le cas de la 1ere application de
             // charges echues
             log.debug("ApplyNotAppliedinAdvanceReccuringCharge chargeInstance.getWalletOperations().size()={}", chargeInstance.getWalletOperations().size());
-            if (chargeInstance.getWalletOperations().size() == 0 && recurringChargeTemplate.getSubscriptionProrata()) {
+            if (recurringChargeTemplate.getSubscriptionProrata()) {
                 applicationTypeEnum = ApplicationTypeEnum.PRORATA_SUBSCRIPTION;
                 double prorataRatio = 1.0;
                 double part1 = DateUtils.daysBetween(periodStart, nextapplicationDate);
