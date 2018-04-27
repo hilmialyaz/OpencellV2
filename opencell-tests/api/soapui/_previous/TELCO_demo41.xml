@@ -28901,7 +28901,88 @@
          </notification>
       </ws:createOrUpdateEmailNotification>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.ws.api.meveo.org/NotificationWs/createOrUpdateEmailNotification"/></con:call></con:operation></con:interface><con:testSuite id="fbd45ab1-9b3f-4007-962b-fb4a138becec" name="Create Settings"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="696c571a-0513-4702-b805-cdd9e13d11bd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SOAPUI Configuration" searchProperties="true"><con:settings/><con:setupScript>import com.eviware.soapui.impl.wsdl.teststeps.*
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.ws.api.meveo.org/NotificationWs/createOrUpdateEmailNotification"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="BillingCustomWsSoapBinding" type="wsdl" bindingName="{http://impl.ws.api.meveo.org/}BillingCustomWsSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/opencell/BillingCustomWs?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/opencell/BillingCustomWs?wsdl"><con:part><con:url>http://localhost:8080/opencell/BillingCustomWs?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BillingCustomWs" targetNamespace="http://impl.ws.api.meveo.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.ws.api.meveo.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ws.api.meveo.org/">
+  <wsdl:import location="http://localhost:8080/opencell/BillingCustomWs?wsdl=BillingCustomWs.wsdl" namespace="http://ws.api.meveo.org/"></wsdl:import>
+  <wsdl:binding name="BillingCustomWsSoapBinding" type="ns1:BillingCustomWs">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calculateTerminationPenalty">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="calculateTerminationPenalty">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="calculateTerminationPenaltyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillingCustomWs">
+    <wsdl:port binding="tns:BillingCustomWsSoapBinding" name="BillingCustomWsImplPort">
+      <soap:address location="http://localhost:8080/opencell/BillingCustomWs"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/opencell/BillingCustomWs?wsdl=BillingCustomWs.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BillingCustomWs" targetNamespace="http://ws.api.meveo.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.api.meveo.org/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://ws.api.meveo.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.api.meveo.org/">
+      <xs:element name="CalculateTerminationPenaltyRequest" type="tns:calculateTerminationPenaltyRequestDto"/>
+      <xs:element name="CalculateTerminationPenaltyResponse" type="tns:calculateTerminationPenaltyResponseDto"/>
+      <xs:element name="calculateTerminationPenalty" type="tns:calculateTerminationPenalty"/>
+      <xs:element name="calculateTerminationPenaltyResponse" type="tns:calculateTerminationPenaltyResponse"/>
+      <xs:complexType name="calculateTerminationPenalty">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customer" type="tns:calculateTerminationPenaltyRequestDto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="calculateTerminationPenaltyRequestDto">
+        <xs:complexContent>
+          <xs:extension base="tns:baseDto">
+            <xs:sequence>
+              <xs:element name="subscriptionCode" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="baseDto">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="calculateTerminationPenaltyResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:calculateTerminationPenaltyResponseDto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="calculateTerminationPenaltyResponseDto">
+        <xs:complexContent>
+          <xs:extension base="tns:baseDto">
+            <xs:sequence>
+              <xs:element name="fee" type="xs:decimal"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="calculateTerminationPenaltyResponse">
+    <wsdl:part element="ns1:calculateTerminationPenaltyResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateTerminationPenalty">
+    <wsdl:part element="ns1:calculateTerminationPenalty" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BillingCustomWs">
+    <wsdl:operation name="calculateTerminationPenalty">
+      <wsdl:input message="ns1:calculateTerminationPenalty" name="calculateTerminationPenalty"></wsdl:input>
+      <wsdl:output message="ns1:calculateTerminationPenaltyResponse" name="calculateTerminationPenaltyResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/opencell/BillingCustomWs</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="calculateTerminationPenalty" bindingOperationName="calculateTerminationPenalty" type="Request-Response" outputName="calculateTerminationPenaltyResponse" inputName="calculateTerminationPenalty" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/opencell/BillingCustomWs</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.api.meveo.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:calculateTerminationPenalty>
+         <!--Optional:-->
+         <customer>
+            <subscriptionCode>etstst</subscriptionCode>
+         </customer>
+      </ws:calculateTerminationPenalty>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>opencell.superadmin</con:username><con:password>opencell.superadmin</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.ws.api.meveo.org/BillingCustomWs/calculateTerminationPenalty"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="fbd45ab1-9b3f-4007-962b-fb4a138becec" name="Create Settings"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="696c571a-0513-4702-b805-cdd9e13d11bd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SOAPUI Configuration" searchProperties="true"><con:settings/><con:setupScript>import com.eviware.soapui.impl.wsdl.teststeps.*
 import com.eviware.soapui.support.types.*;
 
 StringToStringMap headers = new StringToStringMap();

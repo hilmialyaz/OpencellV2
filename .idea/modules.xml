@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/opencell.iml" filepath="$PROJECT_DIR$/opencell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-admin/opencell-admin.iml" filepath="$PROJECT_DIR$/opencell-admin/opencell-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-admin/ejbs/opencell-admin-ejbs.iml" filepath="$PROJECT_DIR$/opencell-admin/ejbs/opencell-admin-ejbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-admin/web/opencell-admin-web.iml" filepath="$PROJECT_DIR$/opencell-admin/web/opencell-admin-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-api/opencell-api.iml" filepath="$PROJECT_DIR$/opencell-api/opencell-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-api-dto/opencell-api-dto.iml" filepath="$PROJECT_DIR$/opencell-api-dto/opencell-api-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-client/opencell-client.iml" filepath="$PROJECT_DIR$/opencell-client/opencell-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-model/opencell-model.iml" filepath="$PROJECT_DIR$/opencell-model/opencell-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-security/opencell-security.iml" filepath="$PROJECT_DIR$/opencell-security/opencell-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencell-tmforum/opencell-tmforum.iml" filepath="$PROJECT_DIR$/opencell-tmforum/opencell-tmforum.iml" />
+    </modules>
+  </component>
+</project>

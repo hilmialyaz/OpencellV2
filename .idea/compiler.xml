@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="opencell-admin-ejbs" />
+        <module name="opencell-admin-web" />
+        <module name="opencell-api" />
+        <module name="opencell-api-dto" />
+        <module name="opencell-client" />
+        <module name="opencell-model" />
+        <module name="opencell-security" />
+        <module name="opencell-tmforum" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="opencell" target="1.5" />
+      <module name="opencell-admin" target="1.5" />
+      <module name="opencell-admin-ejbs" target="1.8" />
+      <module name="opencell-admin-web" target="1.8" />
+      <module name="opencell-api" target="1.8" />
+      <module name="opencell-api-dto" target="1.8" />
+      <module name="opencell-client" target="1.8" />
+      <module name="opencell-model" target="1.8" />
+      <module name="opencell-security" target="1.8" />
+      <module name="opencell-tmforum" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
